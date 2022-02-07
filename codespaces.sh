@@ -13,6 +13,6 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
   fi
   eval `cat $HOME/.ssh/ssh-agent`
 fi
-if [ -n "${PERSONAL_SSH_KEY+1}" ]; then
+if [ -n "${SSH_KEY_HOMEOPS+1}" ]; then
   ssh-add - <<< "${SSH_KEY_HOMEOPS}"
 fi
