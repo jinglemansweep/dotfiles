@@ -9,15 +9,17 @@ This is a personal dotfiles repository containing Linux desktop environment conf
 ## Architecture and Structure
 
 ### Directory Organization
-- `home/` - Contains dotfiles organized exactly as they appear in `$HOME`
+- `desktop/` - Desktop environment configurations (i3, dunst, wallpapers)
+- `shell/` - Terminal and shell configurations (vim, tmux, bash, urxvt, ranger)
+- `fonts/` - Font files organized under `.local/share/fonts/`
+- `claude/` - Claude Code command definitions for workflow automation
 - `packages.md` - System package dependencies for apt-based distributions
-- `home/.claude/commands/` - Claude Code command definitions for workflow automation
 
-### Home Directory Mirroring Pattern
-The dotfiles use a **direct mapping approach** where configuration files in `home/` mirror their exact intended paths relative to `$HOME`:
-- Traditional dotfiles: `.vimrc`, `.tmux.conf`, `.bash_prompt`
-- XDG compliant configs: `.config/application/config`
-- Custom extensions and scripts preserve their target locations
+### Stow Package Structure
+The dotfiles use **GNU Stow** for modular deployment with package-based organization:
+- Each directory (`desktop/`, `shell/`, `fonts/`, `claude/`) is a Stow package
+- Files within packages mirror their intended paths relative to `$HOME`
+- Packages can be installed/removed independently using `stow` and `stow -D`
 
 ## Key Configuration Files
 
@@ -26,17 +28,18 @@ The dotfiles use a **direct mapping approach** where configuration files in `hom
 - `.config/i3status/config` - Status bar showing system metrics with color-coded segments
 - `.config/dunst/dunstrc` - Notification daemon with custom positioning and urgency colors
 
-### Terminal and Development
+### Terminal and Development (`shell/` package)
 - `.vimrc` - Highly customized Vim (207 lines) with native autocomplete, no external plugins
 - `.tmux.conf` - Terminal multiplexer with Ctrl+a prefix and custom split bindings
 - `.bash_prompt` - Git-aware prompt with dynamic status coloring
 - `.urxvt/ext/` - Perl extensions for enhanced terminal functionality
+- `.config/ranger/` - Terminal file manager with custom "tofu" colorscheme
 
 ### Visual and Font Assets
 - `.local/share/fonts/` - Contains Poppins, Space Mono, and Ionicons fonts
 - `.wallpaper.png` and `.lock.png` - Desktop and lock screen images
 
-### Claude Code Integration
+### Claude Code Integration (`claude/` package)
 - `.claude/commands/quick-commit.md` - Fast commit workflow without confirmation prompts
 - `.claude/commands/quick-snapshot-tag.md` - Automated commit and snapshot tagging for development milestones
 
@@ -51,7 +54,7 @@ All applications share a consistent dark theme:
 ### Application Ecosystem
 - **Window Manager**: i3 with gaps and custom borders
 - **Terminal**: rxvt-unicode (urxvt) with Perl extensions
-- **File Manager**: Ranger with custom "tofu" colorscheme
+- **File Manager**: Ranger (terminal-based) with custom "tofu" colorscheme
 - **Editor**: Vim with extensive native customization
 - **Multiplexer**: tmux with mouse support
 
@@ -68,7 +71,26 @@ sudo apt install i3 i3-wm i3lock i3status hsetroot rxvt-unicode suckless-tools x
 
 ## Configuration Deployment
 
-This repository uses manual symlinking for deployment. Configuration files should be symlinked from `home/` to their corresponding locations in `$HOME`.
+This repository uses **GNU Stow** for automated symlink management. All packages must be installed with the `-t ${HOME}` argument to ensure symlinks are created in the home directory:
+
+```bash
+# Install all packages
+stow -t ${HOME} desktop shell fonts claude
+
+# Install specific packages
+stow -t ${HOME} desktop          # Window manager and desktop environment
+stow -t ${HOME} shell            # Terminal, vim, tmux, bash configs
+stow -t ${HOME} claude           # Claude Code commands only
+
+# Remove packages
+stow -D -t ${HOME} desktop       # Remove desktop package symlinks
+stow -D -t ${HOME} shell claude  # Remove multiple packages
+```
+
+### Package Contents
+- **desktop**: `.config/i3/`, `.config/dunst/`, wallpapers, lock screen and fonts
+- **shell**: `.vimrc`, `.tmux.conf`, `.bash_prompt`, `.urxvt/ext/` terminal extensions
+- **claude**: `.claude/commands/` with workflow automation scripts
 
 ## Claude Code Commands
 

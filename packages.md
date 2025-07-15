@@ -4,7 +4,8 @@
 
     sudo apt install \
         build-essential curl git wget vim \
-        python3 python3-pip python3-venv
+        python3 python3-pip python3-venv \
+        stow
 
 # Desktop
 
