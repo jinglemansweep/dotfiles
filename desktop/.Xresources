@@ -38,10 +38,10 @@
 *.color15: #fdf6e3
 
 !! URxvt Appearance
-URxvt.font: xft:SpaceMono:style=Regular:size=10
-URxvt.boldFont: xft:SpaceMono:style=Bold:size=10
-URxvt.italicFont:  xft:SpaceMono:style=Italic:size=10
-URxvt.boldItalicfont: xft:SpaceMono:style=Bold Italic:size=10
+URxvt.font: xft:SpaceMono:style=Regular:size=11
+URxvt.boldFont: xft:SpaceMono:style=Bold:size=11
+URxvt.italicFont:  xft:SpaceMono:style=Italic:size=11
+URxvt.boldItalicfont: xft:SpaceMono:style=Bold Italic:size=11
 URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.geometry: 180x48
