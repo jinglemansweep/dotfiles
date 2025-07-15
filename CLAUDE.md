@@ -9,15 +9,14 @@ This is a personal dotfiles repository containing Linux desktop environment conf
 ## Architecture and Structure
 
 ### Directory Organization
-- `desktop/` - Desktop environment configurations (i3, dunst, wallpapers)
-- `shell/` - Terminal and shell configurations (vim, tmux, bash, urxvt, ranger)
-- `fonts/` - Font files organized under `.local/share/fonts/`
+- `desktop/` - Desktop environment configurations (i3, dunst, wallpapers, fonts)
+- `shell/` - Terminal and shell configurations (vim, tmux, bash, git, npm, personal scripts)
 - `claude/` - Claude Code command definitions for workflow automation
 - `packages.md` - System package dependencies for apt-based distributions
 
 ### Stow Package Structure
 The dotfiles use **GNU Stow** for modular deployment with package-based organization:
-- Each directory (`desktop/`, `shell/`, `fonts/`, `claude/`) is a Stow package
+- Each directory (`desktop/`, `shell/`, `claude/`) is a Stow package
 - Files within packages mirror their intended paths relative to `$HOME`
 - Packages can be installed/removed independently using `stow` and `stow -D`
 
@@ -29,15 +28,20 @@ The dotfiles use **GNU Stow** for modular deployment with package-based organiza
 - `.config/dunst/dunstrc` - Notification daemon with custom positioning and urgency colors
 
 ### Terminal and Development (`shell/` package)
-- `.vimrc` - Highly customized Vim (207 lines) with native autocomplete, no external plugins
+- `.vimrc` - Highly customized Vim (206 lines) with native autocomplete, no external plugins
 - `.tmux.conf` - Terminal multiplexer with Ctrl+a prefix and custom split bindings
 - `.bash_prompt` - Git-aware prompt with dynamic status coloring
-- `.urxvt/ext/` - Perl extensions for enhanced terminal functionality
-- `.config/ranger/` - Terminal file manager with custom "tofu" colorscheme
+- `.gitconfig` - Git user configuration and default settings
+- `.npmrc` - NPM global package directory configuration
+- `.local/personal/scripts/activate.sh` - Environment setup script with PATH, aliases, and secrets
+- `.local/personal/secrets.sh.example` - Template for environment variables
 
-### Visual and Font Assets
-- `.local/share/fonts/` - Contains Poppins, Space Mono, and Ionicons fonts
+### Visual and Font Assets (`desktop/` package)
+- `.local/share/fonts/` - Contains Poppins (18 variants), Space Mono (4 variants), and Ionicons fonts
 - `.wallpaper.png` and `.lock.png` - Desktop and lock screen images
+- `.urxvt/ext/` - Perl extensions for enhanced terminal functionality (clipboard, keyboard-select, url-select)
+- `.config/user-dirs.dirs` - XDG user directories configuration
+- `.Xresources` - X11 resource configuration
 
 ### Claude Code Integration (`claude/` package)
 - `.claude/commands/quick-commit.md` - Fast commit workflow without confirmation prompts
@@ -48,13 +52,13 @@ The dotfiles use **GNU Stow** for modular deployment with package-based organiza
 ### Color Palette
 All applications share a consistent dark theme:
 - Background: `#141c21` (dark blue-gray)
-- Foreground: `#93a1a1` (light gray)  
+- Foreground: `#93a1a1` (light gray)
 - Accent colors: Red `#d12f2c`, Blue `#2587cc`, Green `#289c93`, Yellow `#b08500`, Purple `#696ebf`
 
 ### Application Ecosystem
 - **Window Manager**: i3 with gaps and custom borders
 - **Terminal**: rxvt-unicode (urxvt) with Perl extensions
-- **File Manager**: Ranger (terminal-based) with custom "tofu" colorscheme
+- **File Manager**: Ranger (terminal-based)
 - **Editor**: Vim with extensive native customization
 - **Multiplexer**: tmux with mouse support
 
@@ -65,7 +69,7 @@ Install system dependencies with:
 # Base development tools
 sudo apt install build-essential curl git wget vim python3 python3-pip python3-venv
 
-# Desktop environment  
+# Desktop environment
 sudo apt install i3 i3-wm i3lock i3status hsetroot rxvt-unicode suckless-tools xsel brightnessctl cmus lxappearance ranger scrot
 ```
 
@@ -75,11 +79,11 @@ This repository uses **GNU Stow** for automated symlink management. All packages
 
 ```bash
 # Install all packages
-stow -t ${HOME} desktop shell fonts claude
+stow -t ${HOME} desktop shell claude
 
 # Install specific packages
-stow -t ${HOME} desktop          # Window manager and desktop environment
-stow -t ${HOME} shell            # Terminal, vim, tmux, bash configs
+stow -t ${HOME} desktop          # Window manager, desktop environment, and fonts
+stow -t ${HOME} shell            # Terminal, vim, tmux, bash, git, npm configs
 stow -t ${HOME} claude           # Claude Code commands only
 
 # Remove packages
@@ -88,8 +92,8 @@ stow -D -t ${HOME} shell claude  # Remove multiple packages
 ```
 
 ### Package Contents
-- **desktop**: `.config/i3/`, `.config/dunst/`, wallpapers, lock screen and fonts
-- **shell**: `.vimrc`, `.tmux.conf`, `.bash_prompt`, `.urxvt/ext/` terminal extensions
+- **desktop**: `.config/i3/`, `.config/dunst/`, `.config/user-dirs.dirs`, wallpapers, lock screen, fonts, `.urxvt/ext/`, `.Xresources`
+- **shell**: `.vimrc`, `.tmux.conf`, `.bash_prompt`, `.gitconfig`, `.npmrc`, `.local/personal/` scripts and secrets
 - **claude**: `.claude/commands/` with workflow automation scripts
 
 ## Claude Code Commands
