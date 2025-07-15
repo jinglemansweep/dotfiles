@@ -1,3 +1,6 @@
 [user]
 	email = jinglemansweep@gmail.com
 	name = Louis King
+
+[init]
+	defaultBranch = main
