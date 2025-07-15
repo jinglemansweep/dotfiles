@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Important Notes
+
+- Project uses `pre-commit`, perform `pre-commit` checks before committing.
+
 ## Repository Overview
 
 This is a personal dotfiles repository containing Linux desktop environment configurations. The setup centers around i3 window manager with a carefully curated, minimal toolchain emphasizing productivity and aesthetic consistency.
