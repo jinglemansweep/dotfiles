@@ -11,6 +11,7 @@ This is a personal dotfiles repository containing Linux desktop environment conf
 ### Directory Organization
 - `home/` - Contains dotfiles organized exactly as they appear in `$HOME`
 - `packages.md` - System package dependencies for apt-based distributions
+- `home/.claude/commands/` - Claude Code command definitions for workflow automation
 
 ### Home Directory Mirroring Pattern
 The dotfiles use a **direct mapping approach** where configuration files in `home/` mirror their exact intended paths relative to `$HOME`:
@@ -34,6 +35,10 @@ The dotfiles use a **direct mapping approach** where configuration files in `hom
 ### Visual and Font Assets
 - `.local/share/fonts/` - Contains Poppins, Space Mono, and Ionicons fonts
 - `.wallpaper.png` and `.lock.png` - Desktop and lock screen images
+
+### Claude Code Integration
+- `.claude/commands/quick-commit.md` - Fast commit workflow without confirmation prompts
+- `.claude/commands/quick-snapshot-tag.md` - Automated commit and snapshot tagging for development milestones
 
 ## Unified Design System
 
@@ -65,9 +70,26 @@ sudo apt install i3 i3-wm i3lock i3status hsetroot rxvt-unicode suckless-tools x
 
 This repository uses manual symlinking for deployment. Configuration files should be symlinked from `home/` to their corresponding locations in `$HOME`.
 
+## Claude Code Commands
+
+The repository includes custom Claude Code commands to streamline development workflows:
+
+### Quick Commit (`quick-commit.md`)
+- Automatically generates commit messages based on staged changes
+- Uses first suggested message without user confirmation
+- Follows conventional commit format for consistency
+- Excludes Claude co-authorship footer for cleaner history
+
+### Quick Snapshot Tag (`quick-snapshot-tag.md`)
+- Performs quick commit followed by timestamped tag creation
+- Uses format `snapshot-YYYYMMDD-HHMMSS` for easy identification
+- Automatically pushes tag to origin for backup and sharing
+- Ideal for marking development milestones or experimental states
+
 ## Development Philosophy
 
 - **Minimalism**: No unnecessary plugins or external dependencies
 - **Self-containment**: Most functionality implemented natively within each tool
 - **Consistency**: Unified color scheme and interaction patterns across all applications
 - **Efficiency**: Focus on lightweight tools optimized for keyboard-driven workflows
+- **Automation**: Custom Claude Code commands for streamlined git workflows

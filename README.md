@@ -82,6 +82,7 @@ sudo apt install i3 i3-wm i3lock i3status hsetroot rxvt-unicode suckless-tools x
    ln -sf ~/dotfiles/home/.local/share/fonts/* ~/.local/share/fonts/
    ln -sf ~/dotfiles/home/.wallpaper.png ~/.wallpaper.png
    ln -sf ~/dotfiles/home/.lock.png ~/.lock.png
+   ln -sf ~/dotfiles/home/.claude/commands ~/.claude/commands
    ```
 
 4. **Update font cache:**
@@ -124,6 +125,7 @@ sudo apt install i3 i3-wm i3lock i3status hsetroot rxvt-unicode suckless-tools x
 - **tmux** with `Ctrl+a` prefix and intuitive split bindings
 - **Git-aware bash prompt** with branch status and color coding
 - **Custom color scheme** matching the overall desktop theme
+- **Claude Code commands** for quick commit and snapshot workflows
 
 ### File Management
 - **Ranger** file manager with custom "tofu" colorscheme
@@ -173,6 +175,7 @@ dotfiles/
 │   │   └── user-dirs.dirs        # XDG directories
 │   ├── .local/share/fonts/       # Custom fonts
 │   ├── .urxvt/ext/               # Terminal extensions
+│   ├── .claude/commands/         # Claude Code commands
 │   ├── .vimrc                    # Vim configuration
 │   ├── .tmux.conf                # tmux configuration
 │   ├── .bash_prompt              # Custom shell prompt
