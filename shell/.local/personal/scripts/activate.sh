@@ -10,9 +10,10 @@ PATH="$PATH:/home/louis/.local/bin"
 PATH="$PATH:/home/louis/.npm-global/bin"
 export PATH
 
-# VARIABLES
-export EDITOR="vim"
-export VISUAL="$EDITOR"
+# ENVIRONMENT
+if [ -f ~/.local/personal/env.sh ]; then
+  . ~/.local/personal/env.sh
+fi
 
 # SECRETS
 if [ -f ~/.local/personal/secrets.sh ]; then
