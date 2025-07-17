@@ -7,9 +7,9 @@ general {
 
 order += "load"
 order += "cpu_temperature 0"
-order += "wireless wlp0s20f3"
+# order += "wireless wlp0s20f3"
 order += "volume master"
-order += "battery 0"
+# order += "battery 0"
 order += "time"
 
 load {
@@ -50,4 +50,3 @@ battery 0 {
 time {
 	format = "<span background='#2587cc'>    </span><span background='#bfbaac'>  %b %d at %H:%M  </span>"
 }
-
