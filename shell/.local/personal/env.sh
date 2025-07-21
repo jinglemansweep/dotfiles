@@ -5,6 +5,9 @@ export VISUAL="$EDITOR"
 # Docker
 export COMPOSE_BAKE=true
 
+# Go
+export GOPATH="${HOME}/.go"
+
 # Python
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
