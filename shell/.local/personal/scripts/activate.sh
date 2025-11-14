@@ -28,3 +28,6 @@ fi
 # ALIASES
 alias stow="stow -t ${HOME}"
 alias claude="${HOME}/.claude/local/claude"
+
+# DOCKER SWARM
+docker context use default

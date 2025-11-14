@@ -2,6 +2,9 @@
 export EDITOR="vim"
 export VISUAL="$EDITOR"
 
+# Path
+export PATH="${PATH}:${HOME}/.claude/local"
+
 # Docker
 export COMPOSE_BAKE=true
 
