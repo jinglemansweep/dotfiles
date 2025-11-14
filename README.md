@@ -7,6 +7,7 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 - **desktop** - i3 window manager, status bar, notifications, fonts, wallpapers, X11 config
 - **shell** - vim, tmux, bash prompt, git config, npm config, personal environment scripts
 - **claude** - Claude Code workflow automation commands
+- **opencode** - OpenCode tool configuration and database settings (not deployed via Stow)
 
 ## Installation
 
@@ -38,6 +39,11 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 
 4. Log out and select i3 as your window manager.
 
+## Documentation
+
+- **AGENTS.md** - Comprehensive documentation for AI coding assistants (Claude Code, OpenCode)
+- **CLAUDE.md** - Reference to AGENTS.md for backward compatibility
+
 ## Features
 
 ### Development Tools
@@ -47,9 +53,9 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 - **NPM**: Global package directory setup
 - **Environment**: Automated activation script with PATH and secrets management
 
-### Claude Code Integration
-- **quick-commit**: Fast commit workflow without confirmation
-- **quick-snapshot-tag**: Commit + timestamped snapshot tagging
+### AI Assistant Integration
+- **Claude Code**: Fast commit workflow without confirmation, snapshot tagging
+- **OpenCode**: Tool configuration and database interface for enhanced development workflows
 
 ## Key Bindings
 
@@ -85,5 +91,6 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 ├── .bash_prompt            # Git-aware prompt
 ├── .gitconfig              # Git user settings
 ├── .npmrc                  # NPM configuration
-└── .claude/commands/       # Workflow automation
+└── .claude/commands/       # Claude Code workflow automation
+└── .config/opencode/       # OpenCode tool configuration
 ```
