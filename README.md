@@ -40,13 +40,6 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 
 ## Features
 
-### Desktop Environment
-- **i3 window manager** with gaps and custom keybindings
-- **Dark theme** (`#141c21` background, `#93a1a1` foreground)
-- **Status bar** with system metrics and color-coded segments
-- **Notification system** with dunst
-- **Font family**: Poppins (UI), Space Mono (code), Ionicons (interface)
-
 ### Development Tools
 - **Vim**: 206-line custom configuration with native features
 - **tmux**: Terminal multiplexer with custom prefix (Ctrl+a)
