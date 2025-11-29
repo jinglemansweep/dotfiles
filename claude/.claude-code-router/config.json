@@ -12,14 +12,18 @@
         "anthropic/claude-sonnet-4.5"
       ],
       "transformer": {
-        "use": ["openrouter"]
+        "use": [
+          "openrouter"
+        ]
       }
     },
     {
       "name": "ollama",
       "api_base_url": "${OLLAMA_URL}/v1/chat/completions",
       "api_key": "ollama",
-      "models": ["qwen2.5-coder:latest"]
+      "models": [
+        "qwen2.5-coder:latest"
+      ]
     },
     {
       "name": "zai",
@@ -36,7 +40,7 @@
     }
   ],
   "Router": {
-    "default": "zai",
+    "default": "zai,glm-4.6",
     "background": "ollama,qwen2.5-coder:latest"
   }
 }
