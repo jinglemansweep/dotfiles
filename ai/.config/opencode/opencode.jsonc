@@ -22,7 +22,7 @@
       "type": "local",
       "command": ["npx","-y","@z_ai/mcp-server"],
       "environment": {
-        "Z_AI_API_KEY": "{env:Z_AI_API_KEY}",
+        "Z_AI_API_KEY": "{env:ZAI_API_KEY}",
         "Z_AI_MODE": "ZAI"
       }
     },
@@ -30,7 +30,7 @@
       "type": "remote",
       "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
       "headers": {
-        "Authorization": "Bearer {env:Z_AI_API_KEY}"
+        "Authorization": "Bearer {env:ZAI_API_KEY}"
       }
     }
   }
