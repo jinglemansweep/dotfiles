@@ -10,9 +10,14 @@ PATH="$PATH:/home/louis/.local/bin"
 PATH="$PATH:/home/louis/.npm-global/bin"
 export PATH
 
-# ENVIRONMENT
-if [ -f ~/.local/personal/env.sh ]; then
-  . ~/.local/personal/env.sh
+# ENVIRONMENT: COMMON
+if [ -f ~/.local/personal/env/common.sh ]; then
+  . ~/.local/personal/env/common.sh
+fi
+
+# ENVIRONMENT: LOCAL
+if [ -f ~/.local/personal/env/local.sh ]; then
+  . ~/.local/personal/env/local.sh
 fi
 
 # SECRETS
@@ -27,7 +32,3 @@ fi
 
 # ALIASES
 alias stow="stow -t ${HOME}"
-alias claude="${HOME}/.claude/local/claude"
-
-# DOCKER SWARM
-docker context use default
