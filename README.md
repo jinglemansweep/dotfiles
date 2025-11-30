@@ -4,9 +4,9 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 
 ## Packages
 
-- **desktop** - i3 window manager, status bar, notifications, fonts, wallpapers, X11 config
+- **desktop** - i3 window manager, status bar, notifications, X11 config
 - **shell** - vim, tmux, bash prompt, git config, npm config, personal environment scripts
-- **ai** - AI assistant configurations (Claude Code, ccstatusline, Z.AI integration, OpenCode tools)
+- **ai** - AI assistant configurations (Claude Code, Codex, Gemini, OpenCode)
 
 ## Installation
 
@@ -44,7 +44,7 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 
 Sensitive information such as API keys and personal secrets should be stored in `~/.local/personal/secrets.local.sh`, which is ignored by git. Use this file to set environment variables needed by your applications.
 
-Adding Infisical configuration is as simple as adding the following to your `secrets.local.sh`:
+Adding Infisical secrets manager support is as simple as adding the following to your `secrets.local.sh`:
 
 ```bash
 export INFISICAL_PROJECT_ID="<your-project-id>"
@@ -53,35 +53,6 @@ export INFISICAL_PATHS="<path1> <path2>" # space-separated list of secret paths
 ```
 
 The secrets located in these paths will be automatically loaded into your environment when you source the `activate.sh` script.
-
-## Features
-
-### Development Tools
-- **Vim**: 206-line custom configuration with native features
-- **tmux**: Terminal multiplexer with custom prefix (Ctrl+a)
-- **Git**: Pre-configured user settings and aliases
-- **NPM**: Global package directory setup
-- **Environment**: Automated activation script with PATH and secrets management
-
-### AI Assistant Integration
-- **Claude Code**: Fast commit workflow without confirmation, snapshot tagging, custom status line with ccstatusline
-- **ccstatusline**: Customizable status bar configuration for Claude Code with model info, git context, and token tracking
-- **Z.AI Integration**: Alternative API configuration script for accessing Z.AI's Claude-compatible endpoints with GLM models
-- **OpenCode**: Tool configuration and database interface for enhanced development workflows
-
-## Key Bindings
-
-**i3 Window Manager:**
-- `Mod+Return` - Terminal
-- `Mod+d` - Application launcher
-- `Mod+h/j/k/l` - Navigate windows
-- `Mod+1-6` - Switch workspaces
-- `Mod+Shift+1-6` - Move window to workspace
-
-**Terminal Extensions:**
-- Clipboard integration
-- Keyboard text selection
-- URL selection and opening
 
 ## Directory Structure
 
