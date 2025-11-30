@@ -6,8 +6,7 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 
 - **desktop** - i3 window manager, status bar, notifications, fonts, wallpapers, X11 config
 - **shell** - vim, tmux, bash prompt, git config, npm config, personal environment scripts
-- **claude** - Claude Code workflow automation commands
-- **opencode** - OpenCode tool configuration and database settings (not deployed via Stow)
+- **ai** - AI assistant configurations (Claude Code, ccstatusline, Z.AI integration, OpenCode tools)
 
 ## Installation
 
@@ -24,7 +23,7 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
    ```bash
    git clone <repository> ~/dotfiles
    cd ~/dotfiles
-   stow -t ${HOME} desktop shell claude
+   stow -t ${HOME} desktop shell ai
    ```
 
 3. Set up shell environment:
@@ -54,7 +53,9 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 - **Environment**: Automated activation script with PATH and secrets management
 
 ### AI Assistant Integration
-- **Claude Code**: Fast commit workflow without confirmation, snapshot tagging
+- **Claude Code**: Fast commit workflow without confirmation, snapshot tagging, custom status line with ccstatusline
+- **ccstatusline**: Customizable status bar configuration for Claude Code with model info, git context, and token tracking
+- **Z.AI Integration**: Alternative API configuration script for accessing Z.AI's Claude-compatible endpoints with GLM models
 - **OpenCode**: Tool configuration and database interface for enhanced development workflows
 
 ## Key Bindings
@@ -79,12 +80,16 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 │   ├── i3/config              # Window manager
 │   ├── i3status/config        # Status bar
 │   ├── dunst/dunstrc         # Notifications
-│   └── user-dirs.dirs        # XDG directories
+│   ├── user-dirs.dirs        # XDG directories
+│   ├── ccstatusline/settings.json  # Claude Code status line configuration
+│   └── opencode/             # OpenCode tool configuration
 ├── .local/
 │   ├── share/fonts/          # Poppins, Space Mono, Ionicons
-│   └── personal/
-│       ├── scripts/activate.sh
-│       └── secrets.sh        # Environment variables
+│   ├── personal/
+│   │   ├── scripts/activate.sh
+│   │   └── secrets.sh        # Environment variables
+│   └── scripts/ai/claude/zai.sh  # Z.AI API configuration script
+├── .claude/settings.json    # Claude Code global settings
 ├── .urxvt/ext/              # Terminal extensions
 ├── .vimrc                   # Vim configuration
 ├── .tmux.conf              # Terminal multiplexer
@@ -92,5 +97,4 @@ Linux desktop environment configuration for i3 window manager with a minimal, da
 ├── .gitconfig              # Git user settings
 ├── .npmrc                  # NPM configuration
 └── .claude/commands/       # Claude Code workflow automation
-└── .config/opencode/       # OpenCode tool configuration
 ```
