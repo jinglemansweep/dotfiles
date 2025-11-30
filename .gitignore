@@ -1,2 +1,1 @@
-**/personal/env/local.sh
-**/personal/secrets.sh
+**/*.local.sh
